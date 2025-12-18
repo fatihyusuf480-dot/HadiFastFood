@@ -138,21 +138,21 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">Tentang Kami</a></li>
             <li>
-                <a href="#">Produk ▼</a>
+                <a href="#produk">Produk ▼</a>
                 <ul class="dropdown-content">
-                    <li><a href="#produk">Semua Menu</a></li>
-                    <li><a href="#produk">Makanan</a></li>
-                    <li><a href="#produk">Minuman</a></li>
+                    <li><a href="#produk" onclick="filterMenu('semua')">Semua Menu</a></li>
+                    <li><a href="#produk" onclick="filterMenu('makanan')">Makanan</a></li>
+                    <li><a href="#produk" onclick="filterMenu('minuman')">Minuman</a></li>
                 </ul>
             </li>
+            <li><a href="#tempahan">Tempahan</a></li>
             <li><a href="#hubungi">Hubungi</a></li>
         </ul>
-
         <div class="burger" onclick="toggleNav()">
             <div></div><div></div><div></div>
         </div>
     </nav>
-
+    
     <header class="hero">
         <h1 style="font-family: 'Bebas Neue'; font-size: 3rem; color: var(--secondary);">HADI FAST FOOD</h1>
         <p>Sila pilih daripada menu dropdown kami.</p>
