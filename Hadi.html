@@ -47,7 +47,6 @@
 
         .dropdown-content li a:hover { background: #f9f9f9; color: var(--primary); }
 
-        /* Papar Dropdown bila Hover (Desktop) */
         .nav-links li:hover .dropdown-content { display: block; }
 
         /* Burger Menu */
@@ -79,43 +78,38 @@
             padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;
         }
 
-        /* Floating Cart System */
-        .cart-wrapper {
-            position: fixed; bottom: 20px; right: 20px; z-index: 3000;
-            display: flex; flex-direction: column; align-items: flex-end;
+        /* --- SISTEM TROLI (MINIMIZE/MAXIMIZE) --- */
+        .cart-container {
+            position: fixed; bottom: 20px; right: 20px; width: 300px;
+            background: white; border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2); z-index: 2000;
+            transition: all 0.3s ease;
         }
 
-        /* Minimize Button (Small Circle) */
-        #cart-minimized {
-            display: none; background: var(--primary); color: white;
-            width: 60px; height: 60px; border-radius: 50%; text-align: center;
-            line-height: 60px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        /* Full Cart Window */
-        .cart-window {
-            width: 320px; background: white; border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden;
-            display: none; flex-direction: column;
-        }
-
+        /* Header Troli dengan butang minimize */
         .cart-header {
-            background: var(--dark); color: white; padding: 12px 15px;
             display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 15px; border-bottom: 1px solid #ddd;
+            cursor: pointer; background: #f8f9fa; border-radius: 12px 12px 0 0;
         }
 
-        .cart-header span { font-weight: bold; }
-        .minimize-btn { cursor: pointer; font-size: 1.5rem; line-height: 1; padding: 0 5px; }
+        .cart-body { padding: 15px; }
 
-        .cart-body { padding: 15px; max-height: 250px; overflow-y: auto; font-size: 0.9rem; }
-        .cart-footer { padding: 15px; border-top: 1px solid #eee; }
-        
-        .btn-checkout {
-            display: block; background: #25d366; color: white; text-align: center;
-            padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;
+        /* Keadaan bila troli dikecilkan */
+        .cart-container.minimized {
+            width: 60px; height: 60px; border-radius: 50%; padding: 0;
+            overflow: hidden; display: flex; align-items: center; justify-content: center;
         }
+        .cart-container.minimized .cart-header {
+            width: 100%; height: 100%; padding: 0; border: none; background: var(--primary);
+            justify-content: center; border-radius: 50%;
+        }
+        .cart-container.minimized .cart-body,
+        .cart-container.minimized .cart-header span:first-child { display: none; }
+        .cart-container.minimized .cart-header .min-icon { color: white; font-size: 1.5rem; }
 
-        @media (max-width: 600px) { .cart-window { width: 90vw; } }
-        
+        /* Ikon Pengecil */
+        .min-icon { font-size: 1.2rem; font-weight: bold; color: var(--dark); }
 
         /* Mobile Responsive */
         @media screen and (max-width: 768px) {
@@ -130,7 +124,7 @@
             .dropdown-content { position: static; box-shadow: none; width: 100%; background: #fafafa; }
             .nav-links li:hover .dropdown-content { display: block; }
             .burger { display: flex; }
-            .cart-container { width: 90%; right: 5%; }
+            .cart-container:not(.minimized) { width: 90%; right: 5%; }
         }
 
         .btn-checkout {
@@ -196,10 +190,15 @@
     </section>
 
     <div class="cart-container" id="cartBox" style="display:none;">
-        <p style="font-weight:bold; border-bottom:1px solid #ddd;">🛒 Troli Anda</p>
-        <div id="cart-items" style="font-size:0.8rem; margin:10px 0;"></div>
-        <p id="cart-total" style="font-weight:bold; color:var(--primary);"></p>
-        <a href="#" class="btn-checkout" onclick="sendToWhatsApp()">Pesan di WhatsApp</a>
+        <div class="cart-header" onclick="toggleCart()">
+            <span style="font-weight:bold;">🛒 Pesanan Anda</span>
+            <span class="min-icon" id="minIcon">−</span>
+        </div>
+        <div class="cart-body">
+            <div id="cart-items" style="font-size:0.8rem; margin:10px 0; max-height: 150px; overflow-y: auto;"></div>
+            <p id="cart-total" style="font-weight:bold; color:var(--primary); border-top: 1px solid #eee; padding-top: 5px;"></p>
+            <a href="#" class="btn-checkout" onclick="sendToWhatsApp()">Pesan di WhatsApp</a>
+        </div>
     </div>
 
     <footer id="hubungi" style="background:var(--dark); color:white; padding:40px 5%; text-align:center;">
@@ -219,25 +218,36 @@
             cart.push({name, price});
             total += price;
             updateUI();
-            document.getElementById('cartBox').style.display = 'block';
+            
+            // Pastikan troli muncul dan dalam keadaan maximize bila item ditambah
+            const cartBox = document.getElementById('cartBox');
+            cartBox.style.display = 'block';
+            cartBox.classList.remove('minimized');
+            document.getElementById('minIcon').innerText = '−';
         }
 
         function updateUI() {
             const list = document.getElementById('cart-items');
-            list.innerHTML = cart.map(item => `<div>${item.name} - RM${item.price.toFixed(2)}</div>`).join('');
+            list.innerHTML = cart.map(item => `<div style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>${item.name}</span> <span>RM${item.price.toFixed(2)}</span></div>`).join('');
             document.getElementById('cart-total').innerText = `Total: RM${total.toFixed(2)}`;
         }
-        function minimizeCart() {
-            document.getElementById('cart-full').style.display = 'none';
-            document.getElementById('cart-minimized').style.display = 'block';
-        }
 
-        function maximizeCart() {
-            document.getElementById('cart-full').style.display = 'flex';
-            document.getElementById('cart-minimized').style.display = 'none';
+        // Fungsi Buka/Tutup (Minimize/Maximize)
+        function toggleCart() {
+            const cartBox = document.getElementById('cartBox');
+            const minIcon = document.getElementById('minIcon');
+            
+            cartBox.classList.toggle('minimized');
+            
+            if(cartBox.classList.contains('minimized')) {
+                minIcon.innerText = '🛒'; // Tukar ikon jadi troli bila dikecilkan
+            } else {
+                minIcon.innerText = '−'; // Tukar ikon jadi tolak bila dibesarkan
+            }
         }
 
         function sendToWhatsApp() {
+            if(cart.length === 0) return alert("Troli kosong!");
             let phone = "601121982971";
             let msg = "*PESANAN BARU HADI FAST FOOD*%0A%0A";
             cart.forEach((item, i) => msg += `${i+1}. ${item.name}%0A`);
