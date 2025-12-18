@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hadi Fast Food | Troli Minimize</title>
+    <title>Hadi Fast Food | Dropdown Menu</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,7 +15,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
 
-        /* Navigasi */
+        /* Navigation with Dropdown */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 5%; background: var(--light); position: fixed;
@@ -26,15 +26,42 @@
         .logo-container img { height: 40px; }
         .logo-text { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--primary); }
 
-        .nav-links { display: flex; list-style: none; }
-        .nav-links li { position: relative; }
-        .nav-links li a { text-decoration: none; color: var(--dark); font-weight: 600; padding: 15px; display: block; }
-
-        .dropdown-content {
-            display: none; position: absolute; background: white; min-width: 150px;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1); list-style: none; border-top: 3px solid var(--primary);
+        .nav-links { display: flex; list-style: none; height: 100%; }
+        .nav-links > li { position: relative; display: flex; align-items: center; }
+        
+        .nav-links li a { 
+            text-decoration: none; color: var(--dark); font-weight: 600; 
+            padding: 0 20px; font-size: 0.9rem; transition: 0.3s;
         }
+
+        /* Dropdown Styling */
+        .dropdown-content {
+            display: none; 
+            position: absolute; 
+            top: 70px; 
+            left: 0;
+            background: white; 
+            min-width: 180px; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--primary); 
+            list-style: none;
+        }
+
+        .dropdown-content li a {
+            padding: 12px 20px; 
+            display: block; 
+            border-bottom: 1px solid #eee;
+            line-height: normal;
+        }
+
+        .dropdown-content li a:hover { background: #f9f9f9; color: var(--primary); }
+
+        /* Show Dropdown on Hover (Desktop) */
         .nav-links li:hover .dropdown-content { display: block; }
+
+        /* Burger Menu (Mobile) */
+        .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .burger div { width: 25px; height: 3px; background: var(--dark); }
 
         /* Hero */
         .hero {
@@ -52,20 +79,18 @@
         .card img { width: 100%; height: 180px; object-fit: cover; }
         .btn-add { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
 
-        /* Floating Cart System */
+        /* Floating Cart System (With Minimize) */
         .cart-wrapper {
             position: fixed; bottom: 20px; right: 20px; z-index: 3000;
             display: flex; flex-direction: column; align-items: flex-end;
         }
 
-        /* Minimize Button (Small Circle) */
         #cart-minimized {
             display: none; background: var(--primary); color: white;
             width: 60px; height: 60px; border-radius: 50%; text-align: center;
             line-height: 60px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        /* Full Cart Window */
         .cart-window {
             width: 320px; background: white; border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden;
@@ -77,9 +102,7 @@
             display: flex; justify-content: space-between; align-items: center;
         }
 
-        .cart-header span { font-weight: bold; }
         .minimize-btn { cursor: pointer; font-size: 1.5rem; line-height: 1; padding: 0 5px; }
-
         .cart-body { padding: 15px; max-height: 250px; overflow-y: auto; font-size: 0.9rem; }
         .cart-footer { padding: 15px; border-top: 1px solid #eee; }
         
@@ -88,7 +111,20 @@
             padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;
         }
 
-        @media (max-width: 600px) { .cart-window { width: 90vw; } }
+        /* Mobile Responsive for Menu */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute; right: 0; top: 70px; background: white;
+                width: 100%; flex-direction: column; display: none;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1); height: auto;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { border-bottom: 1px solid #eee; width: 100%; display: block; }
+            .nav-links li a { padding: 15px 5%; width: 100%; }
+            .dropdown-content { position: static; box-shadow: none; width: 100%; background: #fdfdfd; }
+            .burger { display: flex; margin-right: 5%; }
+            .cart-window { width: 90vw; }
+        }
     </style>
 </head>
 <body>
@@ -98,20 +134,28 @@
             <img src="https://cdn.pixabay.com/photo/2018/12/28/10/03/noodle-3899206_1280.png" alt="Logo">
             <span class="logo-text">Hadi Fast Food</span>
         </div>
-        <ul class="nav-links">
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">Tentang Kami</a></li>
             <li>
-                <a href="#">Menu ▼</a>
+                <a href="#">Produk ▼</a>
                 <ul class="dropdown-content">
-                    <li><a href="#produk">Semua</a></li>
+                    <li><a href="#produk">Semua Menu</a></li>
+                    <li><a href="#produk">Makanan</a></li>
+                    <li><a href="#produk">Minuman</a></li>
                 </ul>
             </li>
             <li><a href="#hubungi">Hubungi</a></li>
         </ul>
+
+        <div class="burger" onclick="toggleNav()">
+            <div></div><div></div><div></div>
+        </div>
     </nav>
 
     <header class="hero">
         <h1 style="font-family: 'Bebas Neue'; font-size: 3rem; color: var(--secondary);">HADI FAST FOOD</h1>
-        <p>Klik "Tambah" untuk mula memesan.</p>
+        <p>Sila pilih daripada menu dropdown kami.</p>
     </header>
 
     <section class="products" id="produk">
@@ -139,18 +183,15 @@
 
     <div class="cart-wrapper">
         <div id="cart-minimized" onclick="maximizeCart()">🛒</div>
-
         <div class="cart-window" id="cart-full">
             <div class="cart-header">
                 <span>🛒 Troli Pesanan</span>
                 <span class="minimize-btn" onclick="minimizeCart()">−</span>
             </div>
-            <div class="cart-body" id="cart-content">
-                Troli anda masih kosong.
-            </div>
+            <div class="cart-body" id="cart-content">Troli anda masih kosong.</div>
             <div class="cart-footer">
                 <p id="total-price" style="font-weight:bold; margin-bottom:10px;">Total: RM 0.00</p>
-                <a href="#" class="btn-checkout" onclick="sendToWhatsApp()">Hantar ke WhatsApp</a>
+                <a href="#" class="btn-checkout" onclick="sendToWhatsApp()">Pesan di WhatsApp</a>
             </div>
         </div>
     </div>
@@ -161,6 +202,10 @@
     </footer>
 
     <script>
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
         let cart = [];
         let total = 0;
 
@@ -168,8 +213,6 @@
             cart.push({name, price});
             total += price;
             updateCart();
-            
-            // Auto-show cart when adding item
             document.getElementById('cart-full').style.display = 'flex';
             document.getElementById('cart-minimized').style.display = 'none';
         }
@@ -177,12 +220,11 @@
         function updateCart() {
             const content = document.getElementById('cart-content');
             const totalText = document.getElementById('total-price');
-            
             if (cart.length === 0) {
                 content.innerHTML = "Troli anda masih kosong.";
             } else {
                 content.innerHTML = cart.map((item, index) => 
-                    `<div style="display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #f0f0f0; padding-bottom:5px;">
+                    `<div style="display:flex; justify-content:space-between; margin-bottom:8px;">
                         <span>${item.name}</span>
                         <span>RM ${item.price.toFixed(2)}</span>
                     </div>`
@@ -210,4 +252,4 @@
         }
     </script>
 </body>
-    </html>
+                    </html>
