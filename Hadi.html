@@ -15,7 +15,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
 
-        /* Navigation with Dropdown */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 5%; background: var(--light); position: fixed;
@@ -31,37 +30,1329 @@
         
         .nav-links li a { 
             text-decoration: none; color: var(--dark); font-weight: 600; 
-            padding: 0 20px; font-size: 0.9rem; transition: 0.3s;
+            padding: 0 15px; font-size: 0.9rem; transition: 0.3s;
         }
 
-        /* Dropdown Styling */
-        .dropdown-content {
-            display: none; 
-            position: absolute; 
-            top: 70px; 
-            left: 0;
-            background: white; 
-            min-width: 180px; 
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border-top: 3px solid var(--primary); 
+        
+Perbualan dengan Gemini
+Buatkan saya sebuah website di dalam html,css, JavaScript
+
+
+
+Nama Syarikat: Rumah Adi
+
+Wallpaper di Hero section : https://cdn.pixabay.com/photo/2022/05/26/22/14/lake-7223904_1280.jpg
+
+Product:
+
+Rumah homestay Perak, Malaysia:https://cdn.pixabay.com/photo/2014/07/10/17/18/large-home-389271_1280.jpg
+
+
+
+Rumah homestay Terengganu:https://cdn.pixabay.com/photo/2020/10/13/13/28/ameland-5651866_1280.jpg
+
+
+
+Rumah Homestay Sabah:https://cdn.pixabay.com/photo/2018/11/07/11/38/mountain-3800239_1280.jpg
+
+
+
+Contact: WhatsApp: 601121982971
+
+Tentu, ini adalah rangka kerja lengkap untuk laman web Rumah Adi. Saya telah menggabungkan HTML, CSS, dan JavaScript ke dalam satu struktur yang responsif dan moden.
+
+Anda boleh menyalin kod di bawah dan menyimpannya sebagai fail .html (contohnya: index.html) untuk melihat hasilnya.
+
+HTML
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumah Adi | Homestay Pilihan Anda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://cdn.pixabay.com/photo/2022/05/26/22/14/lake-7223904_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 5%;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section & Footer */
+        .contact {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 4rem 5%;
+        }
+
+        .wa-button {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: 0.3s;
+        }
+
+        .wa-button:hover {
+            background: #128c7e;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #1a252f;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Rumah Adi</div>
+        <div>
+            <a href="#produk" style="text-decoration: none; color: #333; font-weight: 600;">Produk</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Selamat Datang ke Rumah Adi</h1>
+        <p>Penginapan selesa untuk memori yang tidak dapat dilupakan.</p>
+    </header>
+
+    <section class="products" id="produk">
+        <div class="section-title">
+            <h2>Destinasi Homestay Kami</h2>
+            <p>Pilih lokasi percutian idaman anda</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2014/07/10/17/18/large-home-389271_1280.jpg" alt="Homestay Perak">
+                <div class="product-info">
+                    <h3>Homestay Perak</h3>
+                    <p>Suasana kampung yang tenang dan mendamaikan di Perak, Malaysia.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2020/10/13/13/28/ameland-5651866_1280.jpg" alt="Homestay Terengganu">
+                <div class="product-info">
+                    <h3>Homestay Terengganu</h3>
+                    <p>Dekat dengan pantai dan keindahan seni bina tradisional Pantai Timur.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2018/11/07/11/38/mountain-3800239_1280.jpg" alt="Homestay Sabah">
+                <div class="product-info">
+                    <h3>Homestay Sabah</h3>
+                    <p>Nikmati pemandangan gunung-ganang yang megah dan udara segar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Berminat untuk Tempahan?</h2>
+        <p>Hubungi kami sekarang melalui WhatsApp untuk harga terbaik.</p>
+        <a href="https://wa.me/601121982971" class="wa-button" target="_blank">
+            Hubungi WhatsApp: 601121982971
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Rumah Adi. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <script>
+        // JavaScript Simple Interactivity
+        // Contoh: Efek muncul (fade-in) semasa scroll
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Logik mudah untuk memastikan link WhatsApp berfungsi
+        document.querySelector('.wa-button').addEventListener('click', function() {
+            console.log("Mengarahkan pengguna ke WhatsApp...");
+        });
+    </script>
+</body>
+</html>
+Apa yang ada dalam website ini:
+Hero Section: Menggunakan gambar latar belakang tasik yang anda berikan dengan teks yang jelas di tengah.
+
+Product Grid: Memaparkan tiga homestay (Perak, Terengganu, Sabah) menggunakan gambar yang anda berikan dalam bentuk kad yang kemas.
+
+Responsif: Laman web ini akan berubah mengikut saiz skrin (telefon pintar atau laptop).
+
+Butang WhatsApp: Butang hijau yang menonjol yang akan terus membuka WhatsApp nombor yang anda berikan.
+
+Adakah anda mahu saya tambahkan bahagian lain, seperti borang tempahan atau galeri gambar tambahan?
+
+Buatkan satu website fast food
+
+
+
+Nama syarikat: Hadi fast food
+
+Logo: https://cdn.pixabay.com/photo/2018/12/28/10/03/noodle-3899206_1280.png
+
+
+
+Menu:
+
+Tentang kami
+
+Produk
+
+Tempahan
+
+Hubungi
+
+
+
+Section hero: mesti ada wallpaper
+
+Section product ( letakkan gambar) : Burger, roti sosej, air soda, dessert
+
+
+
+Section: tempahan
+
+Section tentang kami
+
+Contact: ahadiatsudirman045@hadifastfood.com
+
+
+
+601121982971( WhatsApp)
+
+Tentu, ini adalah kod sumber untuk laman web Hadi Fast Food. Saya telah menggunakan reka bentuk yang bertema "Fast Food" dengan warna merah dan kuning yang membangkitkan selera, serta navigasi yang berfungsi mengikut permintaan anda.
+
+HTML
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadi Fast Food | Rasa Padu, Harga Mampu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e74c3c; /* Merah */
+            --secondary: #f1c40f; /* Kuning */
+            --dark: #2c3e50;
+            --light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigasi */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background: var(--light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-container img {
+            height: 50px;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
             list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        /* Product Section */
+        .products {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Tempahan Section */
+        .booking {
+            background: var(--secondary);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .btn-wa {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Tentang Kami */
+        .about {
+            padding: 80px 5%;
+            background: #fdf2e9;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer / Contact */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            nav ul { display: none; } /* Mobile menu boleh ditambah dengan JS */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="https://cdn.pixabay.com/photo/2018/12/28/10/03/noodle-3899206_1280.png" alt="Logo">
+            <span class="logo-text">Hadi Fast Food</span>
+        </div>
+        <ul>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#tempahan">Tempahan</a></li>
+            <li><a href="#hubungi">Hubungi</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>SEDAP & PANTAS!</h1>
+        <p>Nikmati hidangan kegemaran anda hanya di Hadi Fast Food.</p>
+    </header>
+
+    <section class="products" id="produk">
+        <h2 class="section-title">Menu Popular Kami</h2>
+        <div class="product-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600" alt="Burger">
+                <h3>Burger Premium</h3>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541214113241-21578d2d9b62?q=80&w=600" alt="Roti Sosej">
+                <h3>Roti Sosej (Hotdog)</h3>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=600" alt="Air Soda">
+                <h3>Air Soda Sejuk</h3>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600" alt="Dessert">
+                <h3>Pencuci Mulut (Dessert)</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking" id="tempahan">
+        <h2>Lapar Sekarang?</h2>
+        <p>Klik butang di bawah untuk pesanan pantas melalui WhatsApp!</p>
+        <a href="https://wa.me/601121982971" class="btn-wa">Order via WhatsApp</a>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">Tentang Kami</h2>
+            <p>Hadi Fast Food bermula dengan impian untuk menyediakan makanan segera yang berkualiti tinggi, bersih, dan halal bagi seluruh komuniti. Kami percaya bahawa setiap hidangan bukan sahaja perlu cepat, tetapi juga penuh dengan rasa kasih sayang.</p>
+        </div>
+    </section>
+
+    <footer id="hubungi">
+        <h2>Hubungi Kami</h2>
+        <p>Punya soalan atau maklum balas? Kami sedia mendengar!</p>
+        <div class="contact-info">
+            <p>Emel: ahadiatsudirman045@hadifastfood.com</p>
+            <p>WhatsApp: +601121982971</p>
+            <br>
+            <p>&copy; 2025 Hadi Fast Food. Rekaan oleh Gemini.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript untuk efek scroll ringkas
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '5px 5%';
+                nav.style.backgroundColor = '#f1f1f1';
+            } else {
+                nav.style.padding = '10px 5%';
+                nav.style.backgroundColor = '#ffffff';
+            }
+        });
+    </script>
+</body>
+</html>
+Kelebihan Laman Web Ini:
+Struktur Moden: Menggunakan CSS Grid untuk paparan menu yang tersusun mengikut peranti (Responsive).
+
+Identiti Visual: Warna merah melambangkan kepantasan dan tenaga, manakala kuning melambangkan kegembiraan dan selera makan.
+
+Fungsi Tempahan: Butang WhatsApp diletakkan secara jelas dalam bahagian Tempahan untuk memudahkan pelanggan membuat pesanan.
+
+Logo: Saya telah meletakkan logo yang anda berikan di bahagian navigasi kiri.
+
+Bolehkah saya membantu anda menambah fungsi lain seperti peta lokasi (Google Maps) atau senarai harga untuk menu tersebut?
+
+Ya
+
+Terima kasih atas maklum balas anda! Memandangkan anda bersetuju, saya telah mengemaskini kod tersebut untuk menambah:
+
+Senarai Harga pada bahagian menu.
+
+Google Maps Placeholder (untuk lokasi kedai).
+
+Borang Hubungi yang lebih profesional.
+
+Berikut adalah kod yang telah ditambah baik:
+
+HTML
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadi Fast Food | Rasa Padu, Harga Mampu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e74c3c; 
+            --secondary: #f1c40f; 
+            --dark: #2c3e50;
+            --light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigasi */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background: var(--light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-container img { height: 50px; }
+
+        .logo-text {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            color: var(--secondary);
+        }
+
+        /* Product Section */
+        .products { padding: 80px 5%; text-align: center; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding-bottom: 20px;
+        }
+
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+
+        .price {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* Tempahan Section */
+        .booking {
+            background: var(--secondary);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .btn-wa {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Map Section */
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="https://cdn.pixabay.com/photo/2018/12/28/10/03/noodle-3899206_1280.png" alt="Logo">
+            <span class="logo-text">Hadi Fast Food</span>
+        </div>
+        <ul>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#tempahan">Tempahan</a></li>
+            <li><a href="#hubungi">Hubungi</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>SEDAP & PANTAS!</h1>
+        <p>Nikmati hidangan kegemaran anda hanya di Hadi Fast Food.</p>
+    </header>
+
+    <section class="products" id="produk">
+        <h2 style="margin-bottom: 40px;">Menu & Harga</h2>
+        <div class="product-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600" alt="Burger">
+                <h3>Burger Premium</h3>
+                <p class="price">RM 12.90</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541214113241-21578d2d9b62?q=80&w=600" alt="Roti Sosej">
+                <h3>Roti Sosej</h3>
+                <p class="price">RM 8.50</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=600" alt="Air Soda">
+                <h3>Air Soda</h3>
+                <p class="price">RM 4.00</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600" alt="Dessert">
+                <h3>Dessert</h3>
+                <p class="price">RM 6.90</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking" id="tempahan">
+        <h2>Tempah Sekarang</h2>
+        <p>Penghantaran pantas terus ke pintu rumah anda.</p>
+        <a href="https://wa.me/601121982971" class="btn-wa">Klik untuk WhatsApp</a>
+    </section>
+
+    <section style="padding: 80px 5%;" id="about">
+        <center>
+            <h2>Tentang Kami</h2>
+            <p style="max-width: 700px; margin-top: 20px;">Hadi Fast Food komited menyediakan makanan segera yang segar dan berkualiti tinggi sejak tahun 2023.</p>
+        </center>
+    </section>
+
+    <div class="map-container">
+        <p>📍 [Lokasi Kedai Anda - Integrasi Google Maps di Sini]</p>
+    </div>
+
+    <footer id="hubungi">
+        <p>Emel: ahadiatsudirman045@hadifastfood.com</p>
+        <p>WhatsApp: +601121982971</p>
+        <br>
+        <p>&copy; 2025 Hadi Fast Food.</p>
+    </footer>
+
+</body>
+</html>
+Langkah seterusnya:
+
+Salin kod ini ke dalam fail bernama index.html.
+
+Anda boleh menukar harga RM tersebut mengikut harga sebenar kedai anda.
+
+Jika anda mempunyai akaun Google Maps, anda boleh menggantikan bahagian "Map Container" dengan kod iframe dari Google Maps.
+
+Adakah anda ingin saya tambahkan sistem troli (shopping cart) ringkas menggunakan JavaScript supaya pelanggan boleh pilih banyak item sebelum ke WhatsApp?
+
+Ya
+
+Bagus! Ini adalah versi Hadi Fast Food 3.0 yang paling canggih. Saya telah menambah Sistem Troli (Shopping Cart) menggunakan JavaScript.
+
+Pelanggan boleh klik "Tambah ke Troli", dan apabila mereka klik butang WhatsApp, sistem akan secara automatik menyenaraikan semua makanan yang dipilih beserta jumlah harga ke dalam pesanan WhatsApp tersebut.
+
+HTML
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadi Fast Food | Sistem Pesanan Pintar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e74c3c; 
+            --secondary: #f1c40f; 
+            --dark: #2c3e50;
+            --light: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: var(--light); position: fixed;
+            width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .logo-container img { height: 50px; }
+        .logo-text { font-family: 'Bebas Neue', cursive; font-size: 1.8rem; color: var(--primary); }
+
+        .hero {
+            height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            url('https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; color: white; text-align: center; margin-top: 60px;
+        }
+
+        .products { padding: 50px 5%; text-align: center; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        
+        .card {
+            background: #fff; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding-bottom: 20px;
+            border: 1px solid #eee;
+        }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .price { font-size: 1.2rem; color: var(--primary); font-weight: bold; margin: 10px 0; }
+
+        .btn-add {
+            background: var(--primary); color: white; border: none;
+            padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-add:hover { background: var(--dark); }
+
+        /* Floating Cart */
+        .cart-container {
+            position: fixed; bottom: 20px; right: 20px;
+            background: white; padding: 20px; border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2); width: 300px; z-index: 2000;
+        }
+        .cart-title { font-weight: bold; border-bottom: 2px solid var(--secondary); margin-bottom: 10px; }
+        .cart-items { max-height: 200px; overflow-y: auto; font-size: 0.9rem; }
+        .cart-total { margin-top: 10px; font-weight: bold; color: var(--primary); }
+        .btn-checkout {
+            display: block; background: #25d366; color: white; text-align: center;
+            padding: 10px; border-radius: 5px; text-decoration: none; margin-top: 10px; font-weight: bold;
+        }
+
+        footer { background: var(--dark); color: white; padding: 30px; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="https://cdn.pixabay.com/photo/2018/12/28/10/03/noodle-3899206_1280.png" alt="Logo">
+            <span class="logo-text">Hadi Fast Food</span>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 style="font-family: 'Bebas Neue'; font-size: 4rem; color: var(--secondary);">MENU HADİ FAST FOOD</h1>
+        <p>Pilih makanan kegemaran anda & terus ke WhatsApp</p>
+    </header>
+
+    <section class="products">
+        <div class="product-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Burger">
+                <h3>Burger Premium</h3>
+                <p class="price">RM 12.00</p>
+                <button class="btn-add" onclick="addToCart('Burger Premium', 12.00)">+ Tambah</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541214113241-21578d2d9b62?w=400" alt="Sosej">
+                <h3>Roti Sosej</h3>
+                <p class="price">RM 8.00</p>
+                <button class="btn-add" onclick="addToCart('Roti Sosej', 8.00)">+ Tambah</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400" alt="Soda">
+                <h3>Air Soda</h3>
+                <p class="price">RM 4.00</p>
+                <button class="btn-add" onclick="addToCart('Air Soda', 4.00)">+ Tambah</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400" alt="Dessert">
+                <h3>Dessert</h3>
+                <p class="price">RM 6.00</p>
+                <button class="btn-add" onclick="addToCart('Dessert', 6.00)">+ Tambah</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart-container">
+        <div class="cart-title">🛒 Troli Saya</div>
+        <div id="cart-items" class="cart-items">Troli kosong...</div>
+        <div class="cart-total" id="cart-total">Total: RM 0.00</div>
+        <a href="#" class="btn-checkout" onclick="sendToWhatsApp()">Hantar Pesanan (WhatsApp)</a>
+    </div>
+
+    <footer>
+        <p>Emel: ahadiatsudirman045@hadifastfood.com</p>
+        <p>&copy; 2025 Hadi Fast Food</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({name, price});
+            total += price;
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartList = document.getElementById('cart-items');
+            const totalDisplay = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartList.innerHTML = "Troli kosong...";
+            } else {
+                cartList.innerHTML = cart.map((item, index) => 
+                    `<div>${index + 1}. ${item.name} - RM ${item.price.toFixed(2)}</div>`
+                ).join('');
+            }
+            totalDisplay.innerHTML = `Total: RM ${total.toFixed(2)}`;
+        }
+
+        function sendToWhatsApp() {
+            if (cart.length === 0) {
+                alert("Sila tambah makanan ke troli dahulu!");
+                return;
+            }
+
+            let phone = "601121982971";
+            let message = "Salam Hadi Fast Food, saya ingin pesan:%0A%0A";
+            
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} (RM ${item.price.toFixed(2)})%0A`;
+            });
+
+            message += `%0A*Jumlah Besar: RM ${total.toFixed(2)}*`;
+            
+            let url = `https://wa.me/${phone}?text=${message}`;
+            window.open(url, '_blank').focus();
+        }
+    </script>
+</body>
+</html>
+Cara Guna Sistem Ini:
+Pilih Makanan: Klik butang "+ Tambah" pada mana-mana makanan.
+
+Lihat Troli: Anda akan nampak senarai makanan terkumpul di kotak putih (bawah kanan).
+
+Klik WhatsApp: Apabila klik "Hantar Pesanan", ia akan membuka WhatsApp anda dengan teks pesanan yang sudah siap ditaip secara automatik (termasuk senarai harga dan jumlah besar).
+
+Adakah anda sudah berpuas hati dengan fungsi ini, atau ingin saya tambahkan bahagian Testimoni Pelanggan?
+
+Pastikan menu tersebut resposive
+
+Tentu, ini adalah versi yang telah dikemaskini sepenuhnya untuk memastikan Sistem Navigasi (Menu) dan Sistem Troli berfungsi dengan sempurna secara responsif pada semua saiz skrin (telefon bimbit, tablet, dan komputer).
+
+Saya telah menambah Hamburger Menu (ikon garis tiga) yang akan muncul secara automatik apabila dibuka menggunakan telefon bimbit.
+
+HTML
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadi Fast Food | Responsif & Pintar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e74c3c; 
+            --secondary: #f1c40f; 
+            --dark: #2c3e50;
+            --light: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+        /* Navigation Responsif */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: var(--light); position: fixed;
+            width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .logo-container img { height: 45px; }
+        .logo-text { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; color: var(--primary); }
+
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links li a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; }
+
+        /* Burger Menu (Mobile Only) */
+        .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .burger div { width: 25px; height: 3px; background: var(--dark); transition: 0.3s; }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            url('https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; color: white; text-align: center; margin-top: 60px; padding: 20px;
+        }
+
+        .hero h1 { font-family: 'Bebas Neue'; font-size: clamp(2.5rem, 8vw, 4.5rem); color: var(--secondary); }
+
+        /* Product Section */
+        .products { padding: 40px 5%; text-align: center; }
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 20px; 
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: #fff; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding-bottom: 20px;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .price { font-size: 1.3rem; color: var(--primary); font-weight: bold; margin: 10px 0; }
+
+        .btn-add {
+            background: var(--primary); color: white; border: none;
+            padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;
+        }
+
+        /* Floating Cart (Mobile Friendly) */
+        .cart-container {
+            position: fixed; bottom: 0; right: 0; width: 100%;
+            background: white; padding: 15px; border-radius: 20px 20px 0 0;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2); z-index: 2000;
+            max-width: 350px; right: 20px; bottom: 20px; border-radius: 15px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .cart-container { width: 90%; right: 5%; bottom: 10px; }
+            .nav-links {
+                position: absolute; right: 0; height: 100vh; top: 60px;
+                background: var(--light); flex-direction: column; align-items: center;
+                width: 70%; transform: translateX(100%); transition: 0.5s; box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.nav-active { transform: translateX(0%); }
+            .burger { display: flex; }
+        }
+
+        .btn-checkout {
+            display: block; background: #25d366; color: white; text-align: center;
+            padding: 12px; border-radius: 5px; text-decoration: none; margin-top: 10px; font-weight: bold;
+        }
+
+        footer { background: var(--dark); color: white; padding: 40px 5%; text-align: center; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="https://cdn.pixabay.com/photo/2018/12/28/10/03/noodle-3899206_1280.png" alt="Logo">
+            <span class="logo-text">Hadi Fast Food</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#produk">Menu</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#hubungi">Hubungi</a></li>
+        </ul>
+        <div class="burger" onclick="toggleNav()">
+            <div></div><div></div><div></div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>RASA PADU, HARGA MAMPU!</h1>
+        <p>Pilih menu kegemaran anda & kami hantar terus ke WhatsApp.</p>
+    </header>
+
+    <section class="products" id="produk">
+        <h2 style="font-family: 'Bebas Neue'; font-size: 2.5rem;">🔥 Menu Popular 🔥</h2>
+        <div class="product-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Burger">
+                <h3>Burger Premium</h3>
+                <p class="price">RM 12.00</p>
+                <button class="btn-add" onclick="addToCart('Burger Premium', 12.00)">+ Tambah ke Troli</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541214113241-21578d2d9b62?w=500" alt="Sosej">
+                <h3>Roti Sosej</h3>
+                <p class="price">RM 8.00</p>
+                <button class="btn-add" onclick="addToCart('Roti Sosej', 8.00)">+ Tambah ke Troli</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500" alt="Soda">
+                <h3>Air Soda</h3>
+                <p class="price">RM 4.00</p>
+                <button class="btn-add" onclick="addToCart('Air Soda', 4.00)">+ Tambah ke Troli</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500" alt="Dessert">
+                <h3>Dessert Manis</h3>
+                <p class="price">RM 6.00</p>
+                <button class="btn-add" onclick="addToCart('Dessert Manis', 6.00)">+ Tambah ke Troli</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart-container" id="cartBox">
+        <div style="font-weight: bold; border-bottom: 2px solid var(--secondary); margin-bottom: 10px; display: flex; justify-content: space-between;">
+            <span>🛒 Pesanan Anda</span>
+            <span onclick="document.getElementById('cartBox').style.display='none'" style="cursor:pointer">✖</span>
+        </div>
+        <div id="cart-items" style="max-height: 150px; overflow-y: auto; font-size: 0.85rem;">Troli masih kosong...</div>
+        <div style="margin-top: 10px; font-weight: bold; color: var(--primary);" id="cart-total">Total: RM 0.00</div>
+        <a href="#" class="btn-checkout" onclick="sendToWhatsApp()">Pesan di WhatsApp</a>
+    </div>
+
+    <footer id="hubungi">
+        <p>Hadi Fast Food &copy; 2025</p>
+        <p>Emel: ahadiatsudirman045@hadifastfood.com</p>
+        <p>WhatsApp: 601121982971</p>
+    </footer>
+
+    <script>
+        // Logik Toggle Navigasi Mobile
+        function toggleNav() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('nav-active');
+        }
+
+        // Logik Troli
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({name, price});
+            total += price;
+            updateCartUI();
+            document.getElementById('cartBox').style.display = 'block';
+        }
+
+        function updateCartUI() {
+            const cartList = document.getElementById('cart-items');
+            const totalDisplay = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartList.innerHTML = "Troli masih kosong...";
+            } else {
+                cartList.innerHTML = cart.map((item, index) => 
+                    `<div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                        <span>${item.name}</span>
+                        <span>RM${item.price.toFixed(2)}</span>
+                    </div>`
+                ).join('');
+            }
+            totalDisplay.innerHTML = `Total Keseluruhan: RM ${total.toFixed(2)}`;
+        }
+
+        function sendToWhatsApp() {
+            if (cart.length === 0) {
+                alert("Sila pilih menu dahulu!");
+                return;
+            }
+
+            let phone = "601121982971";
+            let message = "*PESANAN BARU - HADI FAST FOOD*%0A---------------------------%0A";
+            
+            cart.forEach((item, index) => {
+                message += `- ${item.name} (RM ${item.price.toFixed(2)})%0A`;
+            });
+
+            message += "---------------------------%0A";
+            message += `*JUMLAH BESAR: RM ${total.toFixed(2)}*%0A%0A`;
+            message += "Sila sahkan pesanan saya. Terima kasih!";
+            
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
+Penambahbaikan Responsif:
+Navigasi Mobile: Jika anda buka di telefon, menu akan disembunyikan di sebalik ikon "Burger" untuk menjimatkan ruang skrin.
+
+Product Grid: Menggunakan minmax(250px, 1fr) yang bermaksud kad produk akan menyusun sendiri (dari 4 lajur ke 1 lajur) secara automatik mengikut lebar skrin.
+
+Teks Dinamik: Menggunakan clamp() supaya saiz tulisan tajuk tidak terlalu besar di skrin kecil.
+
+Troli Mesra Mobile: Kotak pesanan diletakkan di bahagian bawah supaya mudah dicapai dengan ibu jari pengguna telefon.
+
+Adakah anda mahu saya tambahkan Testimoni Pelanggan dengan bintang 5 untuk nampak lebih dipercayai?
+
+Menu tersebut mestilah dropdown menu
+
+Tentu, ini adalah kemas kini terakhir yang memfokuskan kepada Dropdown Menu yang responsif.
+
+Dalam versi ini, saya telah mengubah navigasi supaya bahagian "Menu" mempunyai senarai lungsur (dropdown) untuk kategori makanan, serta memastikan ia berfungsi dengan lancar pada peranti mudah alih (mobile).
+
+HTML
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadi Fast Food | Dropdown & Responsif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e74c3c; 
+            --secondary: #f1c40f; 
+            --dark: #2c3e50;
+            --light: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+        /* Navigasi Utama */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%; background: var(--light); position: fixed;
+            width: 100%; top: 0; z-index: 1000; height: 70px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .logo-container img { height: 40px; }
+        .logo-text { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--primary); }
+
+        .nav-links { display: flex; list-style: none; height: 100%; }
+        .nav-links > li { position: relative; display: flex; align-items: center; }
+        
+        .nav-links li a { 
+            text-decoration: none; color: var(--dark); font-weight: 600; 
+            padding: 0 15px; font-size: 0.9rem; transition: 0.3s;
+        }
+
+        /* Dropdown Logic */
+        .dropdown-content {
+            display: none; position: absolute; top: 70px; left: 0;
+            background: white; min-width: 160px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--primary); list-style: none;
         }
 
         .dropdown-content li a {
-            padding: 12px 20px; 
-            display: block; 
-            border-bottom: 1px solid #eee;
-            line-height: normal;
+            padding: 12px 16px; display: block; border-bottom: 1px solid #eee;
         }
 
         .dropdown-content li a:hover { background: #f9f9f9; color: var(--primary); }
 
-        /* Show Dropdown on Hover (Desktop) */
+        /* Papar Dropdown bila Hover (Desktop) */
         .nav-links li:hover .dropdown-content { display: block; }
 
-        /* Burger Menu (Mobile) */
+        /* Burger Menu */
         .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
         .burger div { width: 25px; height: 3px; background: var(--dark); }
+
 
         /* Hero */
         .hero {
